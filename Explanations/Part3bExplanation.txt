@@ -1,0 +1,10 @@
+While executing the program "BufferRedirectViaStack64.c" the important thing is that the shell code is now injected into the stack instead of the heap as in the previous case. By now our shell code is completely independent and autonomous. All we need for it to work is
+
+1. Stack protection should be turned off
+2. Stack should be executable i.e. if the Instruction pointer points to a location on the stack, the program should not crash (Typically it does!)
+
+To achieve these 2 ends we have 2 command line options we give to GCC which achieve the following result
+1. -fno-stack-protector: It turns of stack protection mechanisms like canaries
+2. -z execstack: It makes use of "execstack" we installed earlier to make the stack executable
+
+Thus the program will properly start the shell only if both the options are given during compile time.

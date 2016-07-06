@@ -1,0 +1,10 @@
+Script started on Mon 07 Mar 2016 06:16:35 PM EST
+]0;seclab@SecurityLabUbuntu64: ~/BufferOverflowseclab@SecurityLabUbuntu64:~/BufferOverflow$ as part1.s -o part1.o
+]0;seclab@SecurityLabUbuntu64: ~/BufferOverflowseclab@SecurityLabUbuntu64:~/BufferOverflow$ ld part1.o -o part1
+ld: warning: cannot find entry symbol _start; defaulting to 00000000004000b0
+]0;seclab@SecurityLabUbuntu64: ~/BufferOverflowseclab@SecurityLabUbuntu64:~/BufferOverflow$ ./part1
+$ date
+Mon Mar  7 18:17:52 EST 2016
+$ exit
+]0;seclab@SecurityLabUbuntu64: ~/BufferOverflowseclab@SecurityLabUbuntu64:~/BufferOverflow$ exit
+Script done on Mon 07 Mar 2016 06:18:14 PM EST

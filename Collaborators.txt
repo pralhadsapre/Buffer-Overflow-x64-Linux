@@ -1,0 +1,23 @@
+Given the nature of this assignment, I benefited from discussions and exchanging ideas with the following people:
+
+
+1. Professor Steve Myers
+
+2. Behnood
+
+
+
+(Classmates)
+
+3. Narenda
+
+4. Ganeshram
+
+
+
+They were instrumental in helping me correct my understanding of the concepts. Personally I enjoyed working with them on this assignment.
+
+I also took reference from the following websites for the assembly codes:
+https://filippo.io/linux-syscall-table/
+http://null-byte.wonderhowto.com/how-to/writing-64-bit-shellcode-part-2-removing-null-bytes-0161591/
+
